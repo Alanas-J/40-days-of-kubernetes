@@ -20,4 +20,8 @@ curl -L -o getting-started-app.zip https://github.com/docker/getting-started-app
 unzip getting-started-app.zip
 rm getting-started-app.zip
 # Can chain all of these with conditional running via '&&'
+
+# Docker
+docker build -t day02:first .
+
 ```
