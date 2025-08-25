@@ -1,7 +1,7 @@
 # Day 2 - Docker fundamentals
 Involves downloading the sample excercise app from the Docker repository and dockerising it.
+Running through a Dockerfile and the fundamental docker cli commands.
 
-## As a part of following this tutorial I'm also forcing myself to use as much bash (and also using vi motions)
 ### Commands used
 ```sh
 # Basic git instead of using GUI eg.
@@ -23,5 +23,15 @@ rm getting-started-app.zip
 
 # Docker
 docker build -t day02:first .
-
+docker tag day02:first alanasjdocker/tutorial-repo:day2image
+docker login 
+docker push alanasjdocker/tutorial-repo:day2image
+docker pull alanasjdocker/tutorial-repo:day2image
+docker run -it --name day02 -p 3000:3000 alanasjdocker/tutorial-repo:day2image
+# ^Interractive/stdin + pseudo tty (-it), to run detached you can use (-d)
+# Images expose ports, but these still need to be mapped to host ports on container instaciation. Cannot publish before or after.
+docker start -i day02
+docker rm day02
+docker exec -it day02 sh
+# ^Can execute other processes on a running container.
 ```
